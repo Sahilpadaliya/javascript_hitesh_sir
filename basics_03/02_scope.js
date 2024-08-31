@@ -19,7 +19,32 @@ var c = 9;
 // console.log(a);
 // console.log(b);
 console.log(c);// var scope is global therefore the value inside the block scope is accessible and therefore we dont use it
- 
 
 
+// --------------------------------
+var c =300;
+if(true){
+    let a =10;
+    const b =13;
+    var c = 9;
+    }
+    console.log(c);
+//  ----------------------------
+var c =300;
+if(true){
+    let a =10;
+    const b =13;
+     c = 9;
+    }
+    console.log(c);
+
+    // --------------------------------------------------------------------------
+
+    let a =100;
+    if(true){
+        let a =10
+        const b =13
+        console.log("result: "  , a)
+        };
+        console.log(a)
 
