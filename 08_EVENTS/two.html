@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+    <button id="start">start</button>
+</body>
+<script>
+    // setTimeout(function() {
+    //     console.log('jai shree krishna')  
+    // }, 2000);
+
+
+    // -------------- passing the reference to the timeout function only to the method ----
+    // const saysahil = function(){
+    //     console.log('hare hare krishna ')
+    // }
+    // setTimeout(saysahil, 2000);
+
+    // --------------------------------
+    // changing the text of the webpage 
+
+    // document.querySelector('h1').innerHTML="best js series in the whole world"
+
+    // ye upper wala code 2 sec bad chle uske liye code 
+    // const changetext = function(){
+    //         document.querySelector('h1').innerHTML="best js series in the whole world"
+    // }
+    // setTimeout(changetext,2000);
+
+    // -----now the clear timeout function 
+    const changetext = function(){
+            document.querySelector('h1').innerHTML="best js series in the whole world"
+    }
+    const changeme= setTimeout(changetext,2000);
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeme);
+        console.log('stopped');
+    })
+     
+    // const dontchange= setTimeout(changetext,2000)
+    // document.querySelector('#start').addEventListener('click',function(){
+    //     dontchange;
+    //     console.log('started');
+    // });
+    
+</script>
