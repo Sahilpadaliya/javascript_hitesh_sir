@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clouser and the lexical scoping</title>
+  </head>
+  <body>
+    <button id="orange">orange</button>
+    <button id="red">red</button>
+  </body>
+
+  <script>
+    // ---------------------LEXICAL SCOPING-----------------------------
+
+    // this is the Lexical scoping where the scope of the variable from the outer function to the
+    // inner function is shown
+
+    // function init() {
+    //   let name = "sahil padaliya";
+    //   function displayName() {
+    //     console.log(name);
+    //   }
+    //   displayName();
+    // }
+    // init();
+
+    // -----------------------------------------------------------------------------------------
+
+    // function outer (){
+    //     const username= "hitesh sir"
+    //     function inner(){
+    //         console.log("inner",username)
+    //     }
+    //     inner()
+    // }
+    // outer();
+    // console.log("too outer", username);
+
+    // the sibling of the inner function that is inner() and the innertwo()
+    // and the inner 2 will not access the data of the variable hence sibling
+    // do nit share the variable data
+
+    // and also the child do not share the variable data to the parent
+    // as the secret variable of the inner() function does not access by the
+    // outer
+
+    // function outer (){
+    //     const username= "hitesh sir"
+    //     console.log(secret);
+
+    //     function inner(){
+    //         console.log("inner",username)
+    //         const secret= "my123"
+
+    //     }
+    //     function innertwo(){
+    //         console.log("innertwo",username)
+    //         console.log(secret)
+
+    //     }
+
+    //     inner()
+    //     innertwo()
+    // }
+    // outer();
+    // console.log("too outer", username);
+
+    // -------------------------------------------------------------------------
+
+    // --------------CLOSURES---------------------
+    //     In JavaScript, when you assign const myfunc = makefunc();, you’re not simply storing a value; you’re actually storing a function reference because makefunc() returns a function.
+
+    // Let’s break down how this works:
+
+    // The makefunc function:
+
+    // Inside makefunc, the variable name is defined with the value "krishna ji ".
+    // A nested function displayname is defined, which logs name to the console.
+    // Finally, displayname is returned from makefunc.
+    // Calling makefunc():
+
+    // When you call makefunc(), it returns the displayname function, which still "remembers" the name variable due to closure. A closure allows the inner function to retain access to the name variable even after makefunc has finished executing.
+    // Assigning makefunc() to myfunc:
+
+    // const myfunc = makefunc(); assigns the returned function displayname (not the result of calling it) to myfunc.
+    // Now myfunc holds a reference to the displayname function itself, not just a variable or a value.
+    // Calling myfunc():
+
+    // When you call myfunc(), it executes the displayname function, which logs "krishna ji " to the console.
+    // In summary, myfunc is a variable, but it holds a reference to the displayname function. This is why myfunc() works as a function call—it's referencing the function returned by makefunc().
+
+    // ----------code
+
+    // function makefunc(){
+    //     const name= "krishna ji "
+    //     function displayname(){
+    //         console.log(name)
+    //     }
+    //     return displayname;
+    // }
+    // const myfunc= makefunc();
+    // myfunc();
+
+    // ---------------------
+    // in the closure we are returning the whole function scope to the outer
+    // scope and when the outer scope is called and it get executed
+    // and it store the reference of the inner function to execute it
+
+    // ------------------------------------------------------------------------------
+  </script>
+  <script>
+    // PRACTICAL IMPLEMENTATION OF THE CLOSURES IN THE REAL LIFE
+    // document.getElementById("orange").onclick = function(){
+    //       document.body.style.backgroundColor="orange";
+    // }
+
+    // document.getElementById("red").onclick = function(){
+    //     document.body.style.backgroundColor= "red";
+
+    // agar mujhe yahi color change ka kam 500 color mai
+    // krna pde to bhut hi heptic task hojayega to solve that we
+    //  have to define it in the function
+
+    function clickhandler(color) {
+      // document.body.style.backgroundColor=`${color}`;
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+    document.getElementById("orange").onclick = clickhandler("orange");
+    document.getElementById("red").onclick = clickhandler("red");
+    // single function likhne se wo direct value ko hi apply kr
+    // raha pr apne according nahi kr raha
+    // we have to use the colousers property to use the colour
+    //   property apne according
+
+    // summary
+    // With an inner function: clickhandler returns a function that you can call later, allowing you to control when the color changes (e.g., on click).
+    // Without an inner function: clickhandler directly changes the color, so it happens immediately when clickhandler is called.
+  </script>
+</html>
