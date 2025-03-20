@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jai shree krishna</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+
+</body>
+<script>
+    // ---------simple function 
+    // setInterval(function(){
+    //     console.log("jai jai")
+    // },2000);
+     
+
+    // ---------by passing the function reference 
+    // const set = function(){
+    //     console.log(" HARE HARE ")
+    // };
+    // setInterval(set,2000);
+
+    // we can also pass the parameter in the function 
+    // const says = function(str){
+    //     console.log("hari hari bol",str)
+    // }
+    // setInterval(says,2000,"pgle")
+    // ---------------------------------------
+    // CLEAR INTERVAL --TO STOP THE SETINTERVAL WE USE THIS 
+    //  const set = function(){
+    //     console.log(" HARE HARE ")
+    // };
+    //  const hi = setInterval(set,2000);
+    //  clearInterval(hi);
+
+
+    let setid;
+     document.querySelector("#start")
+                .addEventListener('click',function(){
+                  setid =   setInterval(function(){
+                        console.log("hare hare ")
+                    }, 2000);
+                })
+
+     
+                document.querySelector("#stop")
+                .addEventListener('click',function(){
+                  clearInterval(setid);
+                })
+     
+
+
+</script>
+</html>

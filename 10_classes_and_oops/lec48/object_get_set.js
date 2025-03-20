@@ -16,3 +16,4 @@ const tea = Object.create(user)//   ye ek object factory hai jaise class new key
                                // object ke ander milega
 
 console.log(tea.email)                               
+

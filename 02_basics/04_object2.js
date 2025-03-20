@@ -7,6 +7,7 @@
  tinderuser.id = "123abc"
  tinderuser.name = "sammy"
  tinderuser.isloogedin = "false"
+ 
 
  console.log(tinderuser);
 
